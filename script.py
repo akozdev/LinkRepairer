@@ -5,9 +5,13 @@ file_with_instructor_links = open('./.data/instructor_links.txt', 'w')
 for link in file_with_old_links:
     # Get the question id from the old link
     question_id = link.split('/')[-1].rstrip()
+    course_name = link.split('/')[3]
 
-    # Build a new link with question id
-    new_link = f'https://www.udemy.com/course/the-complete-javascript-course/learn/lecture/5869204#questions/{question_id}'
+    if course_name == 'course':
+        new_link = link.rstrip()
+    else:
+        new_link = f'https://www.udemy.com/course/{course_name}/learn/lecture/5869204#questions/{question_id}'
+
     instructor_link = f'https://www.udemy.com/instructor/communication/qa/{question_id}/detail/'
 
     # Write the new link to a file
@@ -17,3 +21,7 @@ for link in file_with_old_links:
 file_with_old_links.close()
 file_with_new_links.close()
 file_with_instructor_links.close()
+
+# Build a new link with question id
+# new_link = f'https://www.udemy.com/course/{course_name}/learn/lecture/5869204#questions/{question_id}'
+# instructor_link = f'https://www.udemy.com/instructor/communication/qa/{question_id}/detail/'

@@ -14,5 +14,6 @@ for link in file_with_old_links:
     file_with_new_links.write(f'{new_link}\n')
     file_with_instructor_links.write(f'{instructor_link}\n')
 
+file_with_old_links.close()
 file_with_new_links.close()
 file_with_instructor_links.close()
